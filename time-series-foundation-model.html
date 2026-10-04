@@ -308,7 +308,7 @@
       content.querySelector(".equation-slot").innerHTML=equationMarkup(article.id);
       content.querySelector(".deep-equation-slot").append(content.querySelector(".equation-lab").cloneNode(true));
       content.querySelector(".deep-equation-slot").insertAdjacentHTML("beforeend",deepEquationMarkup(article.id));
-      if(article.id==="paper-timesfm"){const deep=content.querySelector("#paper-timesfm-deep"),custom=document.createElement("div");custom.innerHTML=timesfmDeepMarkup();deep.insertBefore(custom.firstElementChild,deep.querySelector(".section-notes"));initTimesfmArchitecture(custom.firstElementChild);}
+      if(article.id==="paper-timesfm"){const deep=content.querySelector("#paper-timesfm-deep"),custom=document.createElement("div");custom.innerHTML=timesfmDeepMarkup();const researchSection=custom.firstElementChild;deep.insertBefore(researchSection,deep.querySelector(".section-notes"));initTimesfmArchitecture(researchSection);}
       content.querySelector(".technical-notes").append(studyCopy);
       studyGrid.remove();
       dialog.append(dialogHeader,content);preview.after(dialog);dialog.setAttribute("role","dialog");dialog.setAttribute("aria-modal","true");
