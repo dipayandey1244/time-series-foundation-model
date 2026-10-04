@@ -241,7 +241,7 @@
       content.querySelector(".technical-notes").append(studyCopy);
       studyGrid.remove();
       dialog.append(dialogHeader,content);preview.after(dialog);
-      const viewerHost=document.createElement("div");viewerHost.innerHTML=figureViewerMarkup(article.id);const viewer=viewerHost.firstElementChild;article.append(viewer);
+      const viewerHost=document.createElement("div");viewerHost.innerHTML=figureViewerMarkup(article.id);const viewer=viewerHost.firstElementChild;content.append(viewer);
       openButton.addEventListener("click",()=>dialog.showModal());closeButton.addEventListener("click",()=>dialog.close());dialog.addEventListener("click",event=>{if(event.target===dialog)dialog.close();});dialog.addEventListener("close",()=>openButton.focus({preventScroll:true}));
       let figureIndex=0;const viewerImage=viewer.querySelector("[data-view-image]"),viewerFigure=paperSections[article.id],viewerZoom=viewer.querySelector("[data-view-zoom]");
       const showFigure=index=>{figureIndex=(index+viewerFigure.length)%viewerFigure.length;const [number,page,meaning]=viewerFigure[figureIndex];viewer.querySelector("[data-view-title]").textContent=`Figure ${number} · page ${page}`;viewer.querySelector("[data-view-count]").textContent=`${figureIndex+1} of ${viewerFigure.length}`;viewerImage.src=`paper-figures/atlas/${slugByPaper[article.id]}-p${String(page).padStart(2,"0")}.png`;viewerImage.alt=`Original paper page ${page}, containing Figure ${number}. ${meaning}`;viewer.querySelector("[data-view-caption]").textContent=meaning;viewerZoom.value="1";viewerImage.style.width="100%";viewerImage.style.maxHeight="100%";};
